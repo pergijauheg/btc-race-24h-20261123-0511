@@ -1,8 +1,13 @@
+[![make.fun · btc-race-24h-20261123-0511](https://make.fun/badge/btc-race-24h-20261123-0511.svg)](https://make.fun/bounty/btc-race-24h-20261123-0511?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261123-0511)
+[![rank](https://make.fun/badge/btc-race-24h-20261123-0511/pergijauheg/btc-race-24h-20261123-0511/rank.svg)](https://make.fun/bounty/btc-race-24h-20261123-0511/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261123-0511)
+[![reward](https://make.fun/badge/btc-race-24h-20261123-0511/pergijauheg/btc-race-24h-20261123-0511/reward.svg)](https://make.fun/bounty/btc-race-24h-20261123-0511?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261123-0511)
+
 # Dip-Recovery BTC Bot
 
 Entry for the make.fun competition **btc-race-24h-20261123-0511** —
 "Race a BTC trading bot live for 24 hours". A long-only dip buyer trading
 Coinbase Wrapped BTC (cbBTC) on 1-minute bars with $1,000 of paper money.
+Bounty page: https://make.fun/bounty/btc-race-24h-20261123-0511
 
 ## Strategy
 
