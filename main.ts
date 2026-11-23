@@ -8,14 +8,17 @@
 // until it recovers past the take-profit or the window flattens it at the end.
 //
 // Entry (all three must hold on the same bar):
-//   - Dip: the close has fallen at least 0.8% over the trailing 120 minutes.
-//   - Regime: the close is no more than 0.5% below where it was 240 minutes ago,
+//   - Dip: the close has fallen at least 0.6% over the trailing 120 minutes.
+//     (v1 used 0.8% and fired only twice on the dev window, so the dip bar
+//     was loosened to catch more of the day's pullbacks.)
+//   - Regime: the close is no more than 0.8% below where it was 240 minutes ago,
 //     so we only buy dips inside a flat-or-rising 4-hour trend, never a waterfall.
-//   - Bounce: the close is at least 0.05% above where it was 15 minutes ago,
+//   - Bounce: the close is at least 0.03% above where it was 15 minutes ago,
 //     so the dip has started turning instead of still falling.
 // Exit:
-//   - Take profit: the position's value at the latest close is at least 1.2%
-//     above what the position cost (fees included).
+//   - Take profit: the position's value at the latest close is at least 1.0%
+//     above what the position cost (fees included), so cash recycles faster
+//     for the next dip instead of waiting out a full 1.2% run.
 //
 // All comparisons are exact bigint cross-multiplications on raw closes, so two
 // runs on the same bars produce the same orders. No clock, no randomness, no
@@ -31,10 +34,10 @@ const REGIME_BARS = 240;
 const BOUNCE_BARS = 15;
 
 // Thresholds, in basis points (10_000 bps = 100%).
-const DIP_BPS = 80; // close down >= 0.8% over DIP_BARS
-const REGIME_FLOOR_BPS = -50; // 4-hour return >= -0.5%
-const BOUNCE_BPS = 5; // 15-minute bounce >= +0.05%
-const TAKE_PROFIT_BPS = 120; // sell at +1.2% over cost
+const DIP_BPS = 60; // close down >= 0.6% over DIP_BARS
+const REGIME_FLOOR_BPS = -80; // 4-hour return >= -0.8%
+const BOUNCE_BPS = 3; // 15-minute bounce >= +0.03%
+const TAKE_PROFIT_BPS = 100; // sell at +1.0% over cost
 
 const MAX_SLIPPAGE_BPS = 200;
 
